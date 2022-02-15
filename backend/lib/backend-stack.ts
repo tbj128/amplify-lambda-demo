@@ -104,7 +104,7 @@ export class EdMonitorAppBackendStack extends cdk.Stack {
             memorySize: 512,
             role: lambdaRole,
             timeout: cdk.Duration.seconds(120),
-            logRetention: RetentionDays.THREE_MONTHS,
+            logRetention: RetentionDays.ONE_DAY,
             vpc: ecgVpc,
             vpcSubnets: ecgVpc.selectSubnets({ subnetType: ec2.SubnetType.PRIVATE }),
             securityGroup: lambdaSecurityGroup,
