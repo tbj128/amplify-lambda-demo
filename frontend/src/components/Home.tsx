@@ -36,7 +36,7 @@ const Home = (): ReactElement => {
 
     // calls a Lambda function to parse the uploaded waveform file and returns it in a parseable array
     const getWaveform = async (name: string) => {
-        const response = await axios.get(`https://nz75ru2ll0.execute-api.us-west-2.amazonaws.com/prod/parser?name=${name}`);
+        const response = await axios.get(`https://5d2n958dij.execute-api.us-west-2.amazonaws.com/prod/parser?name=${name}`);
         // The server is expected to return an array that is of shape (1, 7500)
         // This represents a one lead, 15 sec ECG sampled at 500Hz. 
         // We will reduce this by a factor of 5 in order to have better plotting.
@@ -55,7 +55,7 @@ const Home = (): ReactElement => {
 
     // specify upload params and url for your files
     const getUploadParams = async ({ meta }: any) => {
-        const response = await axios.get(`https://nz75ru2ll0.execute-api.us-west-2.amazonaws.com/prod/presigner?name=${meta["name"]}`);
+        const response = await axios.get(`https://5d2n958dij.execute-api.us-west-2.amazonaws.com/prod/presigner?name=${meta["name"]}`);
         const fields = response["data"]["fields"];
         const uploadUrl = response["data"]["url"];
         const fileUrl = response["data"]["url"] + response["data"]["fields"]["key"];

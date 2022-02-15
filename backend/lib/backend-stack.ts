@@ -25,6 +25,7 @@ export class EdMonitorAppBackendStack extends cdk.Stack {
         const uploadedFilesBucket = new Bucket(this, 'EdMonitorUploadBucket', {
             bucketName: `ed-monitor-uploads-${this.account}`,
             encryption: BucketEncryption.S3_MANAGED,
+            publicReadAccess: false,
         });
         uploadedFilesBucket.addCorsRule({
             allowedHeaders: ['*'],
